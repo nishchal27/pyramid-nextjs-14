@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 import { SITE } from '~/config.js';
 
@@ -25,6 +26,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps) {
+
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'; // Replace 'G-XXXXXXXXXX' with your Google Analytics tracking ID
+
   return (
     <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}>
       <head>
@@ -35,7 +39,10 @@ export default function RootLayout({ children }: LayoutProps) {
         <Providers>
           <Announcement />
           <Header />
-          <main>{children}</main>
+          <main>
+            {children}
+            <GoogleAnalytics gaId={gaId} />
+            </main>
           <Footer2 />
         </Providers>
       </body>
