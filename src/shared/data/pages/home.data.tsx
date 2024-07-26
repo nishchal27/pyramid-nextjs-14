@@ -28,7 +28,8 @@ import {
   TeamProps,
   TestimonialsProps,
 } from '../../types';
-import heroImg from '~/assets/images/hero.jpg';
+import heroImg from '~/assets/images/Pyramid-banner.png';
+import heroTopBannerImg from '~/assets/images/top-patriji-banner.png';
 import nextJsLogo from '~/assets/images/nextjs-logo.png';
 import reactLogo from '~/assets/images/react-logo.png';
 import tailwindCssLogo from '~/assets/images/tailwind-css-logo.png';
@@ -36,14 +37,21 @@ import typescriptLogo from '~/assets/images/typescript-logo.png';
 import cameraFrontImg from '~/assets/images/camera-front.jpg';
 import cameraBackImg from '~/assets/images/camera-back.jpg';
 import gasImg from '~/assets/images/gas.jpg';
+import Image from 'next/image';
 
 // Hero data on Home page *******************
 export const heroHome: HeroProps = {
   title: (
-    <>
-      Free template for <span className="hidden md:inline">starts a website using</span> <span>Next.js</span> +{' '}
-      <span className="sm:whitespace-nowrap">Tailwind CSS</span>
-    </>
+    //pt-48 and pb-48 is temporary.
+    <div className="relative pt-48 overflow-hidden pb-48">
+      {/* changes to span elem is temporary */}
+      <span className="text-left block text-5xl bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent">
+        A Great spiritual revolution <br /> is exploding throughout <br /> the earth
+      </span>
+      <div className="absolute inset-0 -z-10">
+        <Image src={heroTopBannerImg} alt="Hero Image" className="w-full h-full object-cover" />
+      </div>
+    </div>
   ),
   subtitle: (
     <>
